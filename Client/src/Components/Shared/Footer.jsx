@@ -63,7 +63,10 @@ const Footer = ({ scrollToAiTools, scrollToPricing, scrollToTop }) => {
               </li>
               <li>
                 Phone:{" "}
-                <a href="tel:" className="hover:text-primary transition">
+                <a
+                  href="tel:+916284288651"
+                  className="hover:text-primary transition"
+                >
                   6284288651
                 </a>
               </li>

@@ -39,10 +39,11 @@ const BlogTitles = () => {
           },
         }
       );
+
       if (data.success) {
         setContent(data.content);
       } else {
-        toast.error(data.error);
+        toast.error(data.message);
       }
     } catch (error) {
       toast.error(error.response.data.message);

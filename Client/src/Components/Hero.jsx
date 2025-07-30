@@ -56,7 +56,7 @@ const Hero = ({ homeRef, scrollToPricing }) => {
           variants={child}
           className="text-4xl sm:text-5xl md:text-5xl 2xl:text-6xl font-bold leading-tight tracking-tight max-w-5xl"
         >
-          Create Smarter, <span className="text-primary">Faster</span>, and More
+          Create Smarter, <span className="text-primary">Faster</span>, and More{" "}
           <br className="hidden sm:block" />
           Impactful Content with <span className="text-primary">AI</span>
         </motion.h1>

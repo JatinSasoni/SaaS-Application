@@ -35,13 +35,14 @@ const WriteArticle = () => {
           },
         }
       );
+
       if (data.success) {
         setContent(data.content);
       } else {
-        toast.error(data.error.response.data.message);
+        toast.error(data.message || "Something went wrong");
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response.data.message);
     } finally {
       setLoading(false);
     }

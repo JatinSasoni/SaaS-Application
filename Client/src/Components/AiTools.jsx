@@ -8,29 +8,30 @@ const AiTools = ({ aiToolsRef }) => {
   const { user } = useUser();
 
   const parentVariant = {
-    hidden: { scale: 0.95 },
+    hidden: { scale: 0.98 },
     show: {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 60,
-        damping: 20,
-        staggerChildren: 0.3,
+        stiffness: 40,
+        damping: 18,
+        staggerChildren: 0.25,
+        delayChildren: 0.1,
+        duration: 0.1,
       },
     },
   };
 
   const childVariant = {
-    hidden: { y: 40, opacity: 0 },
+    hidden: { opacity: 0 },
     show: {
-      y: 0,
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 80,
-        damping: 14,
-        duration: 0.9,
-        ease: "easeInOut",
+        stiffness: 50,
+        damping: 20,
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
   };
