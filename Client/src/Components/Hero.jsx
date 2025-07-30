@@ -35,7 +35,7 @@ const Hero = ({ homeRef, scrollToPricing }) => {
   return (
     <div
       ref={homeRef}
-      className="px-4 sm:px-20 xl:px-32 relative flex flex-col items-center justify-center w-full bg-[url(/gradientBackground.png)] bg-cover bg-no-repeat max-sm:min-h-[600px] min-h-screen text-center"
+      className="px-4 max-sm:pt-20 sm:px-20 xl:px-32 relative flex flex-col items-center justify-center w-full bg-[url(/gradientBackground.png)] bg-cover bg-no-repeat max-sm:min-h-[600px] min-h-screen text-center"
     >
       <motion.div
         variants={parent}
