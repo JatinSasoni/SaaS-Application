@@ -38,7 +38,7 @@ const WriteArticle = () => {
       if (data.success) {
         setContent(data.content);
       } else {
-        toast.error(data.error);
+        toast.error(data.error.response.data.message);
       }
     } catch (error) {
       toast.error(error.message);

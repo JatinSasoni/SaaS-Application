@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { Creation_model } from "../Models/Creation-Model.js";
 
 export const getUserCreations = async (req, res) => {
@@ -39,6 +40,12 @@ export const toggleLikeCreation = async (req, res) => {
   try {
     const { userId } = req.auth();
     const { id } = req.body;
+    if (!id || !mongoose.isValidObjectId(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Something doesn't seems right",
+      });
+    }
     const creation = await Creation_model.findById(id);
 
     if (!creation) {

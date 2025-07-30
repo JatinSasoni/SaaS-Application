@@ -13,6 +13,7 @@
     "@clerk/clerk-react": "^5.37.0",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.11.0",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.526.0",
     "motion": "^12.23.11",
     "react": "^19.1.0",

@@ -29,8 +29,8 @@ const AiTools = ({ aiToolsRef }) => {
         type: "spring",
         stiffness: 80,
         damping: 14,
-        duration: 0.6,
-        ease: "easeOut",
+        duration: 0.9,
+        ease: "easeInOut",
       },
     },
   };

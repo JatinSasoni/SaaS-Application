@@ -179,6 +179,13 @@ export const removeImageBackground = async (req, res) => {
     const image = req.file;
     const plan = req.plan;
 
+    if (!image) {
+      return res.status(400).json({
+        success: false,
+        message: "Something is missing",
+      });
+    }
+
     if (plan !== "premium") {
       return res.status(402).json({
         success: false,
@@ -222,6 +229,12 @@ export const removeImageObject = async (req, res) => {
     const { object } = req.body;
     const plan = req.plan;
 
+    if (!image) {
+      return res.status(400).json({
+        success: false,
+        message: "Something is missing",
+      });
+    }
     if (plan !== "premium") {
       return res.status(402).json({
         success: false,
@@ -266,6 +279,12 @@ export const resumeReview = async (req, res) => {
     const { userId } = req.auth();
     const resume = req.file;
     const plan = req.plan;
+    if (!resume) {
+      return res.status(400).json({
+        success: false,
+        message: "Something is missing",
+      });
+    }
 
     if (plan !== "premium") {
       return res.status(402).json({

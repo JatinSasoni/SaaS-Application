@@ -10,23 +10,28 @@ const Home = () => {
   const homeRef = useRef(null);
   const aiToolsRef = useRef(null);
   const pricingRef = useRef(null);
+
+  const scrollToAiTools = () => {
+    aiToolsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToPricing = () => {
+    pricingRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToTop = () => {
+    homeRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <Navbar />
-      <Hero homeRef={homeRef} />
+      <Hero homeRef={homeRef} scrollToPricing={scrollToPricing} />
       <AiTools aiToolsRef={aiToolsRef} />
       <Testimonial />
       <Plan pricingRef={pricingRef} />
       <Footer
-        scrollToAiTools={() =>
-          aiToolsRef.current?.scrollIntoView({ behavior: "smooth" })
-        }
-        scrollToPricing={() =>
-          pricingRef.current?.scrollIntoView({ behavior: "smooth" })
-        }
-        scrollToTop={() =>
-          homeRef.current?.scrollIntoView({ behavior: "smooth" })
-        }
+        scrollToAiTools={scrollToAiTools}
+        scrollToPricing={scrollToPricing}
+        scrollToTop={scrollToTop}
       />
     </>
   );

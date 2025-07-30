@@ -4,17 +4,21 @@ import { Protect, useAuth } from "@clerk/clerk-react";
 import CreationItems from "../Components/CreationItems";
 import { toast } from "react-hot-toast";
 import api from "../../api/axios";
+import { useUser } from "@clerk/clerk-react";
 
 const Dashboard = () => {
   const [creations, setCreations] = useState([]);
   const [loading, setLoading] = useState(true);
   const { getToken } = useAuth();
+  const { user } = useUser();
 
   const getDashBoardData = async () => {
     try {
+      const token = await getToken();
+
       const { data } = await api.get("/api/user/get-user-creations", {
         headers: {
-          Authorization: `Bearer ${await getToken()}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       if (data.success) {
@@ -30,8 +34,10 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    getDashBoardData();
-  }, []);
+    if (user) {
+      getDashBoardData();
+    }
+  }, [user]);
 
   return (
     <div className="h-full overflow-y-scroll p-6">
@@ -70,8 +76,8 @@ const Dashboard = () => {
       ) : (
         <div className="space-y-3 ">
           <p className="mt-7 mb-4">Recent Creations</p>
-          {creations?.map((item) => (
-            <CreationItems key={item.id} item={item} />
+          {creations?.map((item, index) => (
+            <CreationItems key={item.id || index} item={item} />
           ))}
         </div>
       )}

@@ -46,7 +46,7 @@ const Testimonial = () => {
     show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
   return (
-    <div className="px-4 sm:px-20 xl:px-32 my-24">
+    <div className="px-4 sm:px-20 xl:px-32  my-10 sm:my-24">
       <motion.div
         variants={parentVariant}
         initial="hidden"
@@ -55,7 +55,7 @@ const Testimonial = () => {
       >
         <motion.h2
           variants={childVariant}
-          className="text-slate-700 text-[42px] font-semibold"
+          className="text-slate-700  max-sm:text-[30px] text-[42px] font-semibold"
         >
           Loved by Creators
         </motion.h2>

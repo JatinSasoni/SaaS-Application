@@ -11,14 +11,14 @@ const Navbar = () => {
   return (
     <motion.div
       initial={{
-        y: -30,
+        y: -40,
         opacity: 0,
       }}
       animate={{
         y: 0,
         opacity: 1,
         transition: {
-          duration: 1.7,
+          duration: 2,
         },
       }}
       className="fixed z-5 w-full backdrop-blur-2xl flex justify-between items-center py-3 px-4 sm:px-20 xl:px-32 cursor-pointer"
@@ -26,7 +26,7 @@ const Navbar = () => {
       <img
         src="/logo.png"
         alt="logo"
-        className="w-32 sm:w-44 cursor-pointer scale-110"
+        className="w-32 sm:w-50 cursor-pointer scale-110"
         onClick={() => navigate("/")}
       />
       {user ? (

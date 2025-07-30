@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Layout from "./Pages/Layout";
@@ -11,6 +10,7 @@ import RemoveObject from "./Pages/RemoveObject";
 import ReviewResume from "./Pages/ReviewResume";
 import Community from "./Pages/Community";
 import { Toaster } from "react-hot-toast";
+import ErrorPage from "./Pages/ErrorPage";
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
       <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/ai" element={<Layout />}>
+        <Route path="/ai" element={<Layout />} errorElement={<ErrorPage />}>
           <Route index element={<Dashboard />} />
           <Route path="write-article" element={<WriteArticle />} />
           <Route path="blog-titles" element={<BlogTitles />} />
@@ -28,6 +28,7 @@ const App = () => {
           <Route path="review-resume" element={<ReviewResume />} />
           <Route path="community" element={<Community />} />
         </Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
