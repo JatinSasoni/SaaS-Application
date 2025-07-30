@@ -10,7 +10,6 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const { getToken } = useAuth();
 
-  //dummy
   const getDashBoardData = async () => {
     try {
       const { data } = await api.get("/api/user/get-user-creations", {
@@ -33,11 +32,12 @@ const Dashboard = () => {
   useEffect(() => {
     getDashBoardData();
   }, []);
+
   return (
     <div className="h-full overflow-y-scroll p-6">
       <div className="flex justify-start gap-4 flex-wrap">
         {/* Total creations */}
-        <div className="flex justify-between items-center w-72 p-4 bg-white rounded-xl border border-gray-200">
+        <div className="flex justify-between items-center w-72 p-4 px-6 bg-white rounded-xl border border-gray-200">
           <div className="text-slate-600">
             <p className="text-sm">Total Creations</p>{" "}
             <h2 className="font-semibold text-xl">{creations?.length}</h2>
@@ -61,19 +61,20 @@ const Dashboard = () => {
             <Sparkles className="w-5 text-white" />
           </div>
         </div>
-        {loading ? (
-          <div className="flex justify-center items-center h-3/4 ">
-            <div className="animate-spin rounded-full h-11 w-11 border-3 border-purple-500 border-t-transparent"></div>
-          </div>
-        ) : (
-          <div className="space-y-3 ">
-            <p className="mt-7 mb-4">Recent Creations</p>
-            {creations?.map((item) => (
-              <CreationItems key={item.id} item={item} />
-            ))}
-          </div>
-        )}
       </div>
+
+      {loading ? (
+        <div className="flex justify-center items-center h-3/4 ">
+          <div className="animate-spin rounded-full h-11 w-11 border-3 border-purple-500 border-t-transparent"></div>
+        </div>
+      ) : (
+        <div className="space-y-3 ">
+          <p className="mt-7 mb-4">Recent Creations</p>
+          {creations?.map((item) => (
+            <CreationItems key={item.id} item={item} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

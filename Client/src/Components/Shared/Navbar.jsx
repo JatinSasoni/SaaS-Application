@@ -1,18 +1,32 @@
-import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { UserButton, useClerk, useUser } from "@clerk/clerk-react";
+import { motion } from "motion/react";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { openSignIn } = useClerk();
   const { user } = useUser();
+
   return (
-    <div className="fixed z-5 w-full backdrop-blur-2xl flex justify-between items-center py-3 px-4 sm:px-20 xl:px-32 cursor-pointer">
+    <motion.div
+      initial={{
+        y: -30,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 1.7,
+        },
+      }}
+      className="fixed z-5 w-full backdrop-blur-2xl flex justify-between items-center py-3 px-4 sm:px-20 xl:px-32 cursor-pointer"
+    >
       <img
-        src={assets.logo}
+        src="/logo.png"
         alt="logo"
-        className="w-32 sm:w-44 cursor-pointer"
+        className="w-32 sm:w-44 cursor-pointer scale-110"
         onClick={() => navigate("/")}
       />
       {user ? (
@@ -25,7 +39,7 @@ const Navbar = () => {
           Get started <ArrowRight className="w-4 h-4" />
         </button>
       )}
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { assets } from "../assets/assets";
 
 const Testimonial = () => {
@@ -31,19 +32,49 @@ const Testimonial = () => {
     },
   ];
 
+  const parentVariant = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+  const childVariant = {
+    hidden: { y: 60, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+  };
   return (
-    <div className="px-4 sm:px-20 xl:px-32 py-24">
-      <div className="text-center">
-        <h2 className="text-slate-700 text-[42px] font-semibold">
+    <div className="px-4 sm:px-20 xl:px-32 my-24">
+      <motion.div
+        variants={parentVariant}
+        initial="hidden"
+        whileInView="show"
+        className="text-center"
+      >
+        <motion.h2
+          variants={childVariant}
+          className="text-slate-700 text-[42px] font-semibold"
+        >
           Loved by Creators
-        </h2>
-        <p className="text-gray-500 max-w-lg mx-auto">
+        </motion.h2>
+        <motion.p
+          variants={childVariant}
+          className="text-gray-500 max-w-lg mx-auto"
+        >
           Don't just take our word for it. Here's what our users are saying.
-        </p>
-      </div>
-      <div className="flex flex-wrap mt-10 justify-center">
+        </motion.p>
+      </motion.div>
+      <motion.div
+        variants={parentVariant}
+        initial="hidden"
+        whileInView="show"
+        className="flex flex-wrap mt-10 justify-center"
+      >
         {dummyTestimonialData.map((testimonial, index) => (
-          <div
+          <motion.div
+            variants={childVariant}
             key={index}
             className="p-8 m-4 max-w-xs rounded-lg bg-[#FDFDFE] shadow-lg border border-gray-100 hover:-translate-y-1 transition duration-300 cursor-pointer"
           >
@@ -78,9 +109,9 @@ const Testimonial = () => {
                 <p className="text-xs text-gray-500">{testimonial.title}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
