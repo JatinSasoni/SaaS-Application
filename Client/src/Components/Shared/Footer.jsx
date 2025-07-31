@@ -55,10 +55,10 @@ const Footer = ({ scrollToAiTools, scrollToPricing, scrollToTop }) => {
               <li>
                 Email:{" "}
                 <a
-                  href="mailto:support@example.com"
+                  href="mailto:jatin8872648396@gmail.com"
                   className="hover:text-primary transition"
                 >
-                  jatin8872648396@example.com
+                  jatin8872648396@gmail.com
                 </a>
               </li>
               <li>
